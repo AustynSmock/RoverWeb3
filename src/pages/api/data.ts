@@ -12,13 +12,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     const data = await response.json();
-    console.log(data);
     
     // Return the data to the frontend
     res.status(200).json(data);
   } else if (req.method === 'POST') {
     // If text data is sent via POST, store it
     const { text } = req.body;
+    console.log(data);
     
     if (text) {
       storedText = text;
