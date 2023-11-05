@@ -7,7 +7,7 @@ let storedText = '';
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     // Fetch data from the Express server
-    const response = await fetch('http://localhost:3000/data', {
+    const response = await fetch('https://rover-web3.vercel.app/data', {
       method: 'GET'
     });
 
@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       storedText = text;
       
       // Send the text to the Express server
-      const response = await fetch('http://localhost:3000/data', {
+      const response = await fetch('https://rover-web3.vercel.app/data', {          //http://localhost:3000
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
