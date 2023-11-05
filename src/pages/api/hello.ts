@@ -5,7 +5,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const data = await fetch('https://rover-web3.vercel.app/',{
+  const data = await fetch('http://localhost:3000/',{
   method:'GET',
   })
   res.status(200).json(await data.json())
