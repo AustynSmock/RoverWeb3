@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   } else if (req.method === 'POST') {
     // If text data is sent via POST, store it
     const { text } = req.body;
-    console.log(data);
+    console.log(text);
     
     if (text) {
       storedText = text;
