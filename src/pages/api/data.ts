@@ -12,6 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     const data = await response.json();
+    console.log(data);
     
     // Return the data to the frontend
     res.status(200).json(data);
