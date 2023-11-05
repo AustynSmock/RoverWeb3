@@ -6,35 +6,15 @@ let storedText = '';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
-    // Fetch data from the Express server
-    const response = await fetch('http://localhost:3000/data', {
-      method: 'GET'
-    });
-
-    const data = await response.json();
-    
     // Return the data to the frontend
-    res.status(200).json(data);
+    res.status(200).json(storedText);
   } else if (req.method === 'POST') {
     // If text data is sent via POST, store it
     const { text } = req.body;
-    console.log(text);
     
     if (text) {
       storedText = text;
-      
-      // Send the text to the Express server
-      const response = await fetch('http://localhost:3000/data', {          //http://localhost:3000
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ text: storedText })
-      });
-
-      const expressResponse = await response.json();
-
-      res.status(200).json(expressResponse);
+      res.status(200).json(storedText);
     } else {
       res.status(400).json({ error: 'Text data is required' });
     }
